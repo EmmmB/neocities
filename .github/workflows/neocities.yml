@@ -3,7 +3,7 @@ name: Deploy to neocities
 on:
   push:
     branches:
-      - main # Change to name of branch you're deploying from
+      - main
 
 concurrency:
   group: deploy-to-neocities
@@ -18,6 +18,6 @@ jobs:
     - name: Deploy to neocities
       uses: bcomnes/deploy-to-neocities@v1
       with:
-        api_token: ${{ secrets.NEOCITIES_API_KEY }}
+        api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
         cleanup: false
-        dist_dir: public # Change to fold your site is in, it's set to the root by default
+        dist_dir: public
