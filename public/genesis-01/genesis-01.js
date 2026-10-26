@@ -1,4 +1,4 @@
- import geneResponse from './modules/geneResponses.mjs'
+ import { geneResponse } from './modules/geneResponses.mjs'
 
 
 // vars
@@ -26,17 +26,10 @@
     const gifLoad = new Image(400) 
       gifLoad.src = './img/LOAD.gif' // The animation for the load bar, currently broken thanks to caching and not being able to restart a gif
   
-  // responses
-   /* const response = [ 
-      'I can help with that',
-      'Another Response I don\'t want to look up other responses right now',
-      'and a third one for good measure'
-    ]
-      */
 
 // funcs
 
-// Early example of how it'll fetch unique responses. WIP
+// Fetching responses and displaying nothing if there's no applicable response
   function getResponse() {
     if (geneResponse.get(buttonPhrase) != undefined) {
       screenResponse = geneResponse.get(buttonPhrase)
