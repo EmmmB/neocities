@@ -1,4 +1,4 @@
-import geneResponse from './modules/geneResponses.mjs'
+ import geneResponse from './modules/geneResponses.mjs'
 
 
 // vars
@@ -19,7 +19,7 @@ import geneResponse from './modules/geneResponses.mjs'
     const sndTALK = new Audio('./sounds/buttons/TALK.ogg') // TALK
     const sndHELP = new Audio('./sounds/buttons/HELP.ogg') // HELP
     const sndWORK = new Audio('./sounds/buttons/WORK.ogg') // WORK
-//    const sndLoad = new Audio('./sounds/Load.ogg') // load sounds that doesn't work or is too quiet
+//  const sndLoad = new Audio('./sounds/Load.ogg') // load sounds that doesn't work or is too quiet
 
 
   // img
@@ -38,7 +38,11 @@ import geneResponse from './modules/geneResponses.mjs'
 
 // Early example of how it'll fetch unique responses. WIP
   function getResponse() {
-    screenResponse = geneResponse[buttonPhrase] 
+    if (geneResponse.get(buttonPhrase) != undefined) {
+      screenResponse = geneResponse.get(buttonPhrase)
+    } else {
+      screenResponse = ''
+    }
     buttonPhrase = ''
     document.getElementById('screen').innerHTML = screenResponse
   }
@@ -88,52 +92,33 @@ import geneResponse from './modules/geneResponses.mjs'
   }
 
   // Each button sends what string is should display, and what sound file it should play over to buttonPress
-  function sayYOU() {
-    buttonPress('YOU', sndYOU)
-    
-  }
+  const buttonYOU = document.querySelector('#sayYOU')
+  const buttonTHEY = document.querySelector('#sayTHEY')
+  const buttonME = document.querySelector('#sayME')
+  const buttonTO = document.querySelector('#sayTO')
+  const buttonLET = document.querySelector('#sayLET')
+  const buttonGO = document.querySelector('#sayGO')
+  const buttonTALK = document.querySelector('#sayTALK')
+  const buttonHELP = document.querySelector('#sayHELP')
+  const buttonWORK = document.querySelector('#sayWORK')
 
-  function sayTHEY() {
-    buttonPress('THEY', sndTHEY)
+  buttonYOU.onclick = () => buttonPress('YOU', sndYOU)
+  buttonTHEY.onclick = () => buttonPress('THEY', sndTHEY)
+  buttonME.onclick = () => buttonPress('ME', sndME)
+  buttonTO.onclick = () => buttonPress('TO', sndTO)
+  buttonLET.onclick = () => buttonPress('LET', sndLET)
+  buttonGO.onclick = () => buttonPress('GO', sndGO)
+  buttonTALK.onclick = () => buttonPress('TALK', sndTALK)
+  buttonHELP.onclick = () => buttonPress('HELP', sndHELP)
+  buttonWORK.onclick = () => buttonPress('WORK', sndWORK)
 
-  }
 
-  function sayME() {
-    buttonPress('ME', sndME)
 
-  }
-
-  function sayTO() {
-    buttonPress('TO', sndTO)
-
-  }
-
-  function sayLET() {
-    buttonPress('LET', sndLET)
-  }
-
-  function sayGO() {
-    buttonPress('GO', sndGO)
-
-  }
-
-  function sayTALK() {
-    buttonPress('TALK', sndTALK)
-
-  }
-
-  function sayHELP() {
-    buttonPress('HELP', sndHELP)
-
-  }
-
-  function sayWORK() {
-    buttonPress('WORK', sndWORK)
-
-  }
 //  resest button. Checks if it's "thinking" so it doesn't reset when it shouldn't
-  function reset() {
-    if(isThinking == false) {
+  const buttonReset = document.querySelector('#reset')
+
+  buttonReset.onclick = () => {
+      if(isThinking == false) {
       buttonsPressed = 0
       buttonPhrase = ''
       document.getElementById('screen').innerHTML = buttonPhrase

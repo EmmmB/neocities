@@ -4,12 +4,12 @@
   <head>
     <title>LET ME TALK</title>
     <link href="genesis-01.css" rel="stylesheet"media="all">
-    <script src="genesis-01.js"></script>
+    
     
   </head>
   <body>
     <!-- Creating the Buttons -->
-    <button onclick="sayYOU()">YOU</button>
+   <!--  <button onclick="sayYOU()">YOU</button>
     <button onclick="sayTHEY()">THEY</button>
     <button onclick="sayME()">ME</button>
     <button onclick="sayTO()">TO</button>
@@ -19,6 +19,18 @@
     <button onclick="sayHELP()">HELP</button>
     <button onclick="sayWORK()">WORK</button>
     <button onclick="reset()">RESET</button>
+  -->
+
+    <button type="button" class="phrase" id="sayYOU">YOU</button>
+    <button type="button" class="phrase" id="sayTHEY">THEY</button>
+    <button type="button" class="phrase" id="sayME">ME</button>
+    <button type="button" class="phrase" id="sayTO">TO</button>
+    <button type="button" class="phrase" id="sayLET">LET</button>
+    <button type="button" class="phrase" id="sayGO">GO</button>
+    <button type="button" class="phrase" id="sayTALK">TALK</button>
+    <button type="button" class="phrase" id="sayHELP">HELP</button>
+    <button type="button" class="phrase" id="sayWORK">WORK</button>
+    <button type="button" id="reset">RESET</button>
 
     <!-- This displays the last word pressed so far -->
     <p id="WORD"></p>
@@ -28,7 +40,7 @@
 
     
 
-    
+    <script type="module" src="genesis-01.js"></script>
   </body>
 
 </html>
