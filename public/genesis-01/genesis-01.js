@@ -31,8 +31,8 @@
 
 // Fetching responses and displaying nothing if there's no applicable response
   function getResponse() {
-    if (geneResponse.get(buttonPhrase) != undefined) {
-      screenResponse = geneResponse.get(buttonPhrase)
+    if (geneResponse[buttonPhrase] != undefined) {
+      screenResponse = geneResponse[buttonPhrase]
     } else {
       screenResponse = ''
     }
@@ -117,5 +117,7 @@
       document.getElementById('screen').innerHTML = buttonPhrase
     }
   }
+
+  console.log(geneResponse['LET ME TALK'])
 
 

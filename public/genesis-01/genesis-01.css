@@ -3,3 +3,12 @@ body {
   color: black;
   font-family: 'OCR A';
 }
+
+#screen {
+  text-transform: uppercase;
+  color: #697821;
+  display: flex;
+  text-wrap: balance;
+  flex-wrap: wrap;
+  justify-content: center;
+}
