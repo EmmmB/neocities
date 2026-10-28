@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>LET ME TALK</title>
-    <link href="genesis-01.css?v1" rel="stylesheet"media="all">
+    <link href="genesis-01.css?v2" rel="stylesheet"media="all">
     
     
   </head>
@@ -32,15 +32,16 @@
     <button type="button" class="phrase" id="sayWORK">WORK</button>
     <button type="button" id="reset">RESET</button>
 
-    <!-- This displays the last word pressed so far -->
-    <p id="WORD"></p>
-    <p id="buttonValue"></p>
-    <p id="response"></p>
-    <p id="screen"></p>
+    <!-- Kinda messy, but basically what's displayed on the screen. -->
+    <div class="screen" id="text"></div>
+    <div class="screen" id="loadBar">
+        <div id="loadFill"></div>
+    </div>
+    
 
     
 
-    <script type="module" src="genesis-01.js?v1"></script>
+    <script type="module" src="genesis-01.js?v2"></script>
   </body>
 
 </html>

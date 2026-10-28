@@ -19,6 +19,7 @@
     const sndTALK = new Audio('./sounds/buttons/TALK.ogg') // TALK
     const sndHELP = new Audio('./sounds/buttons/HELP.ogg') // HELP
     const sndWORK = new Audio('./sounds/buttons/WORK.ogg') // WORK
+    const sndRespond = new Audio('./sounds/Response.ogg')
 //  const sndLoad = new Audio('./sounds/Load.ogg') // load sounds that doesn't work or is too quiet
 
 
@@ -33,18 +34,20 @@
   function getResponse() {
     if (geneResponse[buttonPhrase] != undefined) {
       screenResponse = geneResponse[buttonPhrase]
+      sndRespond.play()
     } else {
       screenResponse = ''
     }
     buttonPhrase = ''
-    document.getElementById('screen').innerHTML = screenResponse
+    document.getElementById('text').innerHTML = screenResponse
   }
 
 // Once Triggered, removes the load bar, tells the system that it has a response, fetches the response, sets the amount of buttons pressed to zero, and tells the system that it's not "thinking" anymore.
   function loadResponse() {
-    document.body.removeChild(gifLoad)
+    document.getElementById("loadBar").style.display = "none"
+    document.getElementById("text").style.display = "block"
     hasResponse = true
-    document.getElementById('screen').innerHTML = buttonPhrase
+    document.getElementById('text').innerHTML = buttonPhrase
     getResponse()
     buttonsPressed = 0
     isThinking = false
@@ -55,11 +58,16 @@
     
     if (buttonsPressed > 2) {
       isThinking = true
-      document.body.appendChild(gifLoad)
-      setTimeout(loadResponse, 2000)
+      setTimeout(() => {document.getElementById("loadBar").style.display = "block"}, 1800)
+      setTimeout(() => {document.getElementById("text").style.display = "none"}, 1800)
+      // document.getElementById("loadBar").style.display = "block"
+      // document.getElementById("text").style.display = "none"
+      setTimeout(loadResponse, 3100)
       
     }
   }
+
+  console.log()
 
 // This is the function for pressing a button. If you press a button, this happens, unless it's the reset button. That one is different =)
   function buttonPress(button, snd) {
@@ -73,7 +81,7 @@
         buttonPhrase += ' '
       }
       buttonPhrase += button
-      document.getElementById('screen').innerHTML = buttonPhrase
+      document.getElementById('text').innerHTML = buttonPhrase
       responseCheck()
     }
 
@@ -114,10 +122,8 @@
       if(isThinking == false) {
       buttonsPressed = 0
       buttonPhrase = ''
-      document.getElementById('screen').innerHTML = buttonPhrase
+      document.getElementById('text').innerHTML = buttonPhrase
     }
   }
-
-  console.log(geneResponse['LET ME TALK'])
 
 
