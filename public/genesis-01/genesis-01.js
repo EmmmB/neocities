@@ -45,7 +45,7 @@
 // Once Triggered, removes the load bar, tells the system that it has a response, fetches the response, sets the amount of buttons pressed to zero, and tells the system that it's not "thinking" anymore.
   function loadResponse() {
     document.getElementById("loadBar").style.display = "none"
-    document.getElementById("text").style.display = "block"
+    document.getElementById("text").style.display = "initial"
     hasResponse = true
     document.getElementById('text').innerHTML = buttonPhrase
     getResponse()
@@ -58,7 +58,7 @@
     
     if (buttonsPressed > 2) {
       isThinking = true
-      setTimeout(() => {document.getElementById("loadBar").style.display = "block"}, 1800)
+      setTimeout(() => {document.getElementById("loadBar").style.display = "flex"}, 1800)
       setTimeout(() => {document.getElementById("text").style.display = "none"}, 1800)
       // document.getElementById("loadBar").style.display = "block"
       // document.getElementById("text").style.display = "none"
