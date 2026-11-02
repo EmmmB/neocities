@@ -1,112 +1,105 @@
+:root {
+  --button-size: 8em
+}
+
+@font-face {
+  font-family: gene;
+  src: url(./font/gene.ttf)
+}
+
 body {
   background-color: rgb(17, 19, 13);
   color: black;
-  font-family: 'OCR A';
+  font-family: gene;
+  /* display: grid; */
 }
 
-.phrase {
+.buttonText {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   cursor: pointer;
-  height: 60px;
-  width: 60px;
+  height: 85%;
+  width: 85%;
   border-radius: 100%;
   background: none;
-  filter: opacity(15%);
+  filter: opacity(100%);
   border: none;
   pointer-events: auto;
 }
 
+.buttons {
+  display: grid;
+  grid-template-columns: 14em 14em;
+  grid-auto-rows: 7em;
+  gap: 2em;
+  align-items: center;
+  justify-content:  space-between;
+  width: 65%;
+  min-width: 55em;
+  margin: 9em auto;
+  /* border: solid yellow; */
+}
+
+.buttons > *:nth-child(4n + 1),
+.buttons > *:nth-child(4n + 2) {
+  justify-self: right;
+
+}
+
 .buttonImage {
   border-radius: 100%;
-  height: 65px;
-  width: 65px;
+  height: var(--button-size);
+  width: var(--button-size);
+  background-position: 50% 50% !important;
+  background-size: var(--button-size) var(--button-size) !important;
+}
+
+#reset {
   display: flex;
-  float: left;
-  justify-content: center;
-  align-items: center;
-  border: none;
 }
 
-.buttons {
-  position: fixed;
-  top: 100px;
-  left: 51%;
-  translate: -50% -50%;
-}
-
-.phrase:hover {
+.buttonText:hover {
   filter: opacity(50%);
 }
 
-.buttonImage:has(.phrase:nth-last-of-type(1):hover) {
+.buttonImage:has(.buttonText:nth-last-of-type(1):hover) {
   filter: brightness(80%);
 }
 
-#sayYOU {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/YOU.png) no-repeat;
-}
-
-#sayTHEY {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/THEY.png) no-repeat;
-}
-
-#sayME {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/ME.png) no-repeat;
-}
-
-#sayTO {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/TO.png) no-repeat;
-}
-
-#sayLET {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/LET.png) no-repeat;
-}
-
-#sayGO {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/GO.png) no-repeat;
-}
-
-#sayTALK {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/TALK.png) no-repeat;
-}
-
-#sayHELP {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/HELP.png) no-repeat;
-}
-
-#sayWORK {
-  background: 50% 50% / 65px 65px url(./img/BUTTONS/WORK.png) no-repeat;
-}
-
-/* .screen {
-  text-transform: uppercase;
-  color: #697821;
-  display: flex;
-  text-wrap: balance;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-} */
-
 .screen {
-  position: fixed;
-  text-transform: uppercase;
-  color: #697821;
-  text-wrap: balance;
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* border: 1px solid; */
+  position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
+  width: 34%;
+  min-width: 14em;
+  height: 17em;
+  text-transform: uppercase;
+  color: #697821;
+  border: none purple;
+  font-size: 2em;
 }
 
-#text {
-  /* border: solid 1px; */
-  vertical-align: middle;
+.response {
+  position: absolute;
   text-align: center;
-  
+}
+
+.phrases {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.phrases > * {
+  width: 100%;
+  align-content: center;
+  text-align: center;
 }
 
 #loadBar {
@@ -117,7 +110,6 @@ body {
   display: none;
   filter: blur(1px);
   margin: auto;
-
 }
 
 #loadFill {
@@ -166,4 +158,40 @@ body {
     100% { width: 100%; }
     100% { width: 100%; }
 
+}
+
+#sayYOU {
+  background: url(./img/BUTTONS/YOU.png) no-repeat;
+}
+
+#sayTHEY {
+  background: url(./img/BUTTONS/THEY.png) no-repeat;
+}
+
+#sayME {
+  background: url(./img/BUTTONS/ME.png) no-repeat;
+}
+
+#sayTO {
+  background: url(./img/BUTTONS/TO.png) no-repeat;
+}
+
+#sayLET {
+  background: url(./img/BUTTONS/LET.png) no-repeat;
+}
+
+#sayGO {
+  background: url(./img/BUTTONS/GO.png) no-repeat;
+}
+
+#sayTALK {
+  background: url(./img/BUTTONS/TALK.png) no-repeat;
+}
+
+#sayHELP {
+  background: url(./img/BUTTONS/HELP.png) no-repeat;
+}
+
+#sayWORK {
+  background: url(./img/BUTTONS/WORK.png) no-repeat;
 }

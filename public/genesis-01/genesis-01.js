@@ -3,10 +3,12 @@
 
 // vars
   var buttonsPressed = 0 // How many buttons have been pressed during a question
-  var buttonPhrase = '' // The phrase that appears on screen from the buttons you press
+  var buttonPhrase = [] // Logging each button phrase as separate sting
   var hasResponse = false // [DEPRECATED] If a response is on screen or not
   var isThinking = false // If a response is loading
   var screenResponse = '' // The unique response that displays after a question
+  const response = document.querySelector('.response')
+  var fullPhrase = ''
   // var test = true // test var to test things, you know how it is
   
   // audio
@@ -21,33 +23,42 @@
     const sndWORK = new Audio('./sounds/buttons/WORK.ogg') // WORK
     const sndRespond = new Audio('./sounds/Response.ogg')
 //  const sndLoad = new Audio('./sounds/Load.ogg') // load sounds that doesn't work or is too quiet
-
-
-  // img
-    const gifLoad = new Image(400) 
-      gifLoad.src = './img/LOAD.gif' // The animation for the load bar, currently broken thanks to caching and not being able to restart a gif
-  
+ 
 
 // funcs
 
-// Fetching responses and displaying nothing if there's no applicable response
+  function resetPhrase() {
+    buttonPhrase = []
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(i).innerHTML = ''
+    }
+  }
+
+  function fetchPhrase() {
+    fullPhrase = buttonPhrase.join(" ")
+    console.log(fullPhrase)
+  }
+
+  
+
+  
   function getResponse() {
-    if (geneResponse[buttonPhrase] != undefined) {
-      screenResponse = geneResponse[buttonPhrase]
+    if (geneResponse[fullPhrase] != undefined) {
+      screenResponse = geneResponse[fullPhrase]
       sndRespond.play()
     } else {
       screenResponse = ''
     }
-    buttonPhrase = ''
-    document.getElementById('text').innerHTML = screenResponse
+    buttonPhrase = []
+    response.innerHTML = screenResponse
   }
 
 // Once Triggered, removes the load bar, tells the system that it has a response, fetches the response, sets the amount of buttons pressed to zero, and tells the system that it's not "thinking" anymore.
   function loadResponse() {
+    resetPhrase()
     document.getElementById("loadBar").style.display = "none"
-    document.getElementById("text").style.display = "initial"
+    document.querySelector('.phrases').style.display = "flex"
     hasResponse = true
-    document.getElementById('text').innerHTML = buttonPhrase
     getResponse()
     buttonsPressed = 0
     isThinking = false
@@ -59,9 +70,7 @@
     if (buttonsPressed > 2) {
       isThinking = true
       setTimeout(() => {document.getElementById("loadBar").style.display = "flex"}, 1800)
-      setTimeout(() => {document.getElementById("text").style.display = "none"}, 1800)
-      // document.getElementById("loadBar").style.display = "block"
-      // document.getElementById("text").style.display = "none"
+      setTimeout(() => {document.querySelector('.phrases').style.display = "none"}, 1800)
       setTimeout(loadResponse, 3100)
       
     }
@@ -72,24 +81,18 @@
 // This is the function for pressing a button. If you press a button, this happens, unless it's the reset button. That one is different =)
   function buttonPress(button, snd) {
 
-  // Checks if there's room for another word, and if the word you just pressed isn't already on screen. If both are true then it adds the word the the screen, adds to the amount of buttons pressed for this question, and adds a space if it needs to. 
     if (buttonsPressed <= 2 && !buttonPhrase.includes(button)) {
-
-      buttonsPressed += 1
-
-      if (buttonPhrase != '') {
-        buttonPhrase += ' '
-      }
-      buttonPhrase += button
-      document.getElementById('text').innerHTML = buttonPhrase
-      responseCheck()
+        buttonPhrase[buttonsPressed] = button
+        buttonsPressed += 1
+        document.getElementById(buttonsPressed).innerHTML = button
+        responseCheck()
+        fetchPhrase()
+        screenResponse = ''
+        response.innerHTML = ''
     }
-
-// This little bit is so you can spam the sound even if it doesn't accept another input. It forces the sound to cut itself off.
     snd.pause()
     snd.currentTime = 0
     snd.play()
-    
   }
 
   // Each button sends what string is should display, and what sound file it should play over to buttonPress
@@ -120,9 +123,10 @@
 
   buttonReset.onclick = () => {
       if(isThinking == false) {
-      buttonsPressed = 0
-      buttonPhrase = ''
-      document.getElementById('text').innerHTML = buttonPhrase
+        buttonsPressed = 0
+        response.innerHTML = ''
+        resetPhrase()
+        fetchPhrase()
     }
   }
 

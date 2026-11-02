@@ -3,82 +3,69 @@
 <html>
   <head>
     <title>LET ME TALK</title>
-    <link href="genesis-01.css?v2" rel="stylesheet"media="all">
+    <link href="genesis-01.css?v3" rel="stylesheet"media="all">
     
     
-  </head>
-  <body>
-    <!-- Creating the Buttons -->
-   <!--  <button onclick="sayYOU()">YOU</button>
-    <button onclick="sayTHEY()">THEY</button>
-    <button onclick="sayME()">ME</button>
-    <button onclick="sayTO()">TO</button>
-    <button onclick="sayLET()">LET</button>
-    <button onclick="sayGO()">GO</button>
-    <button onclick="sayTALK()">TALK</button>
-    <button onclick="sayHELP()">HELP</button>
-    <button onclick="sayWORK()">WORK</button>
-    <button onclick="reset()">RESET</button>
-  -->
+   </head>
+   <body>
 
-  
-      <!-- <button type="button" class="phrase" id="sayYOU"></button> -->
-    <!-- <img type=button src="./img/BUTTONS/YOU.png" class="phrase" id="sayYOU"> -->
+      <div class="screen">
+         <span class="response"></span>
 
-     <div class="buttons">
-       <span id="sayYOU" class="buttonImage">
-        <button type="button" class="phrase" ></button>
-       </span>
-       
-       <span id="sayTHEY" class="buttonImage">
-        <button type="button" class="phrase" ></button>
-       </span>
-       
-           <span id="sayME" class="buttonImage">
-        <button type="button" class="phrase" ></button>
-           </span>
-       
-           <span id="sayTO" class="buttonImage">
-        <button type="button" class="phrase" ></button>
-           </span>
-       
-           <span id="sayLET" class="buttonImage">
-        <button type="button" class="phrase"></button>
-           </span>
-       
-           <span id="sayGO" class="buttonImage">
-        <button type="button" class="phrase"></button>
-           </span>
-       
-           <span id="sayTALK" class="buttonImage">
-        <button type="button" class="phrase"></button>
-           </span>
-       
-           <span id="sayHELP" class="buttonImage">
-        <button type="button" class="phrase"></button>
-           </span>
-       
-           <span id="sayWORK" class="buttonImage">
-        <button type="button" class="phrase"></button>
-           </span>
-       
-           <span id="reset" class="buttonImage">
-        <button type="button">RESET</button>
-           </span>
-     </div>
+         <span class="phrases" id="phrase">
+            <span id="1"></span>
+            <span id="2"></span>
+            <span id="3"></span>
+         </span>
 
-    <!-- Kinda messy, but basically what's displayed on the screen. -->
-    <div class="screen">
-      <span id="text"></span>
-      <div  id="loadBar">
-          <div id="loadFill"></div>
+         <div  id="loadBar">
+            <div id="loadFill"></div>
+         </div>
       </div>
-    </div>
-    
 
-    
+      <div class="buttons">
+         <span id="sayYOU" class="buttonImage">
+            <button type="button" class="buttonText" ></button>
+         </span>
 
-    <script type="module" src="genesis-01.js?v2"></script>
+         <span id="sayTHEY" class="buttonImage">
+            <button type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayME" class="buttonImage">
+            <button type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayTO" class="buttonImage">
+            <button type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayLET" class="buttonImage">
+            <button type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayGO" class="buttonImage">
+            <button type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayTALK" class="buttonImage">
+            <button type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayHELP" class="buttonImage">
+            <button type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayWORK" class="buttonImage">
+            <button type="button" class="buttonText"></button>
+         </span>     
+      </div>
+
+      <span id="reset" class="buttonImage">
+        <button type="button">RESET</button>
+      </span>
+
+      <script type="module" src="genesis-01.js?v3"></script>
   </body>
 
 </html>
