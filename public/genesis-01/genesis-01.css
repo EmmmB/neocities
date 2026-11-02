@@ -80,13 +80,14 @@ body {
   height: 17em;
   text-transform: uppercase;
   color: #697821;
-  border: none purple;
+  border: solid purple;
   font-size: 2em;
 }
 
 .response {
-  position: absolute;
+  width: 100%;
   text-align: center;
+  border: solid;
 }
 
 .phrases {
