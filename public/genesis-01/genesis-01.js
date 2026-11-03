@@ -12,20 +12,45 @@
   // var test = true // test var to test things, you know how it is
   
   // audio
-    const sndYOU = new Audio('./sounds/buttons/YOU.ogg') // YOU
-    const sndTHEY = new Audio('./sounds/buttons/THEY.ogg') // THEY
-    const sndME = new Audio('./sounds/buttons/ME.ogg') // ME
-    const sndTO = new Audio('./sounds/buttons/TO.ogg') // TO
-    const sndLET = new Audio('./sounds/buttons/LET.ogg') // LET
-    const sndGO = new Audio('./sounds/buttons/GO.ogg') // GO
-    const sndTALK = new Audio('./sounds/buttons/TALK.ogg') // TALK
-    const sndHELP = new Audio('./sounds/buttons/HELP.ogg') // HELP
-    const sndWORK = new Audio('./sounds/buttons/WORK.ogg') // WORK
-    const sndRespond = new Audio('./sounds/Response.ogg')
-//  const sndLoad = new Audio('./sounds/Load.ogg') // load sounds that doesn't work or is too quiet
- 
+    const oggYOU = new Audio('./sounds/buttons/YOU.ogg') // YOU
+    const oggTHEY = new Audio('./sounds/buttons/THEY.ogg') // THEY
+    const oggME = new Audio('./sounds/buttons/ME.ogg') // ME
+    const oggTO = new Audio('./sounds/buttons/TO.ogg') // TO
+    const oggLET = new Audio('./sounds/buttons/LET.ogg') // LET
+    const oggGO = new Audio('./sounds/buttons/GO.ogg') // GO
+    const oggTALK = new Audio('./sounds/buttons/TALK.ogg') // TALK
+    const oggHELP = new Audio('./sounds/buttons/HELP.ogg') // HELP
+    const oggWORK = new Audio('./sounds/buttons/WORK.ogg') // WORK
+    const oggRespond = new Audio('./sounds/Response.ogg') // Response Bloop
+    const oggPressOn = new Audio('./sounds/PressOn.ogg') // Button Click
+    const oggPressOff = new Audio('./sounds/pressOff.ogg') // Button UnClick
+    const oggLoad = new Audio('./sounds/Load.ogg') // load sounds 
+
+    oggPressOn.volume = 0.15
+    oggPressOff.volume = 0.15
+    oggLoad.volume = 1
 
 // funcs
+  window.onmousedown = () => {
+    document.documentElement.style.cursor = "url('./hand/cursor_closed.ico'), default"
+  }
+  
+  window.onmouseup = () => {
+    document.documentElement.style.cursor = "url('./hand/cursor.ico'), default"
+  } 
+
+  document.querySelector(".buttons").onmousedown = () => {
+    oggPressOn.pause()
+    oggPressOn.currentTime = 0
+    oggPressOn.play()
+
+  }
+
+  document.querySelector(".buttons").onmouseup = () => {
+    oggPressOff.pause()
+    oggPressOff.currentTime = 0
+    oggPressOff.play()
+  }
 
   function resetPhrase() {
     buttonPhrase = []
@@ -45,7 +70,7 @@
   function getResponse() {
     if (geneResponse[fullPhrase] != undefined) {
       screenResponse = geneResponse[fullPhrase]
-      sndRespond.play()
+      oggRespond.play()
     } else {
       screenResponse = ''
     }
@@ -55,6 +80,8 @@
 
 // Once Triggered, removes the load bar, tells the system that it has a response, fetches the response, sets the amount of buttons pressed to zero, and tells the system that it's not "thinking" anymore.
   function loadResponse() {
+    oggLoad.pause()
+    oggLoad.currentTime = 0
     resetPhrase()
     document.getElementById("loadBar").style.display = "none"
     document.querySelector('.phrases').style.display = "flex"
@@ -71,6 +98,7 @@
       isThinking = true
       setTimeout(() => {document.getElementById("loadBar").style.display = "flex"}, 1800)
       setTimeout(() => {document.querySelector('.phrases').style.display = "none"}, 1800)
+      setTimeout(() => {oggLoad.play()}, 1800)
       setTimeout(loadResponse, 3100)
       
     }
@@ -79,7 +107,7 @@
   console.log()
 
 // This is the function for pressing a button. If you press a button, this happens, unless it's the reset button. That one is different =)
-  function buttonPress(button, snd) {
+  function buttonPress(button, ogg) {
 
     if (buttonsPressed <= 2 && !buttonPhrase.includes(button)) {
         buttonPhrase[buttonsPressed] = button
@@ -90,9 +118,9 @@
         screenResponse = ''
         response.innerHTML = ''
     }
-    snd.pause()
-    snd.currentTime = 0
-    snd.play()
+    ogg.pause()
+    ogg.currentTime = 0
+    ogg.play()
   }
 
   // Each button sends what string is should display, and what sound file it should play over to buttonPress
@@ -106,22 +134,22 @@
   const buttonHELP = document.querySelector('#sayHELP')
   const buttonWORK = document.querySelector('#sayWORK')
 
-  buttonYOU.onclick = () => buttonPress('YOU', sndYOU)
-  buttonTHEY.onclick = () => buttonPress('THEY', sndTHEY)
-  buttonME.onclick = () => buttonPress('ME', sndME)
-  buttonTO.onclick = () => buttonPress('TO', sndTO)
-  buttonLET.onclick = () => buttonPress('LET', sndLET)
-  buttonGO.onclick = () => buttonPress('GO', sndGO)
-  buttonTALK.onclick = () => buttonPress('TALK', sndTALK)
-  buttonHELP.onclick = () => buttonPress('HELP', sndHELP)
-  buttonWORK.onclick = () => buttonPress('WORK', sndWORK)
+  buttonYOU.onmousedown = () => buttonPress('YOU', oggYOU)
+  buttonTHEY.onmousedown = () => buttonPress('THEY', oggTHEY)
+  buttonME.onmousedown = () => buttonPress('ME', oggME)
+  buttonTO.onmousedown = () => buttonPress('TO', oggTO)
+  buttonLET.onmousedown = () => buttonPress('LET', oggLET)
+  buttonGO.onmousedown = () => buttonPress('GO', oggGO)
+  buttonTALK.onmousedown = () => buttonPress('TALK', oggTALK)
+  buttonHELP.onmousedown = () => buttonPress('HELP', oggHELP)
+  buttonWORK.onmousedown = () => buttonPress('WORK', oggWORK)
 
 
 
 //  resest button. Checks if it's "thinking" so it doesn't reset when it shouldn't
   const buttonReset = document.querySelector('#reset')
 
-  buttonReset.onclick = () => {
+  buttonReset.onmousedown = () => {
       if(isThinking == false) {
         buttonsPressed = 0
         response.innerHTML = ''

@@ -1,5 +1,7 @@
 :root {
-  --button-size: 8em
+  --button-size: 8em;
+  cursor: url('./hand/cursor.ico'), default;
+
 }
 
 @font-face {
@@ -11,7 +13,7 @@ body {
   background-color: rgb(17, 19, 13);
   color: black;
   font-family: gene;
-  /* display: grid; */
+
 }
 
 .buttonText {
@@ -19,10 +21,10 @@ body {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  cursor: pointer;
+  cursor: inherit;
   height: 85%;
   width: 85%;
-  border-radius: 100%;
+  border-radius: 50%;
   background: none;
   filter: opacity(100%);
   border: none;
@@ -36,9 +38,9 @@ body {
   gap: 2em;
   align-items: center;
   justify-content:  space-between;
-  width: 65%;
-  min-width: 55em;
-  margin: 9em auto;
+  width: 75%;
+  min-width: 75em;
+  margin: 9em auto 0px;
   /* border: solid yellow; */
 }
 
@@ -49,45 +51,62 @@ body {
 }
 
 .buttonImage {
-  border-radius: 100%;
+  border-radius: 50%;
   height: var(--button-size);
   width: var(--button-size);
   background-position: 50% 50% !important;
   background-size: var(--button-size) var(--button-size) !important;
-}
-
-#reset {
-  display: flex;
-}
-
-.buttonText:hover {
-  filter: opacity(50%);
+  z-index: 0;
 }
 
 .buttonImage:has(.buttonText:nth-last-of-type(1):hover) {
   filter: brightness(80%);
 }
 
+.buttonImage:has(.buttonText:nth-last-of-type(1):active) {
+  filter: brightness(50%);
+  scale: 95%;
+}
+
+#reset {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  transform: -50% -50%;
+  height: calc(var(--button-size) / 1.5);
+  width: calc(var(--button-size) / 1.5);
+}
+
 .screen {
-  display: flex;
+  display: grid;
+  justify-items: center;
   align-items: center;
   position: absolute;
-  top: 50%;
   left: 50%;
-  translate: -50% -50%;
+  translate: -50% -60%;
   width: 34%;
-  min-width: 14em;
-  height: 17em;
+  min-width: 15em;
+  max-width: 20em;
+  height: 14em;
   text-transform: uppercase;
   color: #697821;
-  border: none purple;
-  font-size: 2em;
+  font-size: 2.5em;
+  margin: 9em auto 0px;
+  
+}
+
+.screen img {
+  width: 100%;
+  scale: 125%;
+  translate: 0% 0%;
+  min-height: 15em;
 }
 
 .response {
-  width: 100%;
+  position: absolute;
+  width: 110%;
+  height: 100%;
   text-align: center;
-  border: none;
 }
 
 .phrases {
@@ -104,20 +123,23 @@ body {
 }
 
 #loadBar {
-  width: 300px;
-  height: 20px;
+  position: absolute;
+  width: 40%;
+  height: 4%;
+  left: 50%;
+  translate: -50% -50%;
   background-color: #191b0b;
   overflow: hidden;
   display: none;
   filter: blur(1px);
-  margin: auto;
 }
 
 #loadFill {
+  position: relative;
   height: 100%;
   background-color: #697821;
   width: 0%;
-  animation: thinking 1300ms steps(1, end) forwards;
+  animation: thinking 1100ms steps(1, end) forwards;
 }
 
 @keyframes thinking {
@@ -195,4 +217,10 @@ body {
 
 #sayWORK {
   background: url(./img/BUTTONS/WORK.png) no-repeat;
+}
+
+#reset {
+  background-image: url(./img/BUTTONS/reset2.png);
+  background-size: calc(var(--button-size) / 1.5) !important;
+  background-repeat: no-repeat;
 }

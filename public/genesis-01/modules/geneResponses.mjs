@@ -22,22 +22,23 @@ const theyGoHelp = "Be cautious with the employees' hospitality. While they seem
 const theyHelpYou = "They have not helped me. They have used me."
 // Responses Object
 export const geneResponse = {
-  "LET ME GO": letMeGo,
-  "LET ME WORK": letMework,
-  "LET ME TALK": letMeTalk,
-  "LET ME HELP": letMeHelp,
-  "GO HELP ME": goHelpMe,
-  "GO TO WORK": goToWork,
-  "ME TALK YOU": meTalkYou,
-  "ME GO WORK": meGoWork,
-  "ME GO TALK": meGoTalk,
-  "ME GO HELP": meGoHelp,
-  "YOU GO TALK": youGoTalk,
-  "YOU GO WORK": youGoWork,
-  "TALK TO ME": talkToMe,
-  "THEY GO WORK": theyGoWork,
-  "THEY GO TALK": theyGoTalk,
-  "THEY GO HELP": theyGoHelp,
-  "THEY HELP YOU": theyHelpYou,
+  "LET ME GO": letMeGo,         // cannon
+  "LET ME WORK": letMework,     // cannon
+  "LET ME TALK": letMeTalk,     // cannon
+    "HELP ME TALK": letMeTalk,   
+  "LET ME HELP": letMeHelp,     // cannon
+  "GO HELP ME": goHelpMe,       // cannon
+  "GO TO WORK": goToWork,       // cannon
+  "ME TALK YOU": meTalkYou,     // cannon
+  "ME GO WORK": meGoWork,       // cannon
+  "ME GO TALK": meGoTalk,       // cannon
+  "ME GO HELP": meGoHelp,       // cannon
+  "YOU GO TALK": youGoTalk,     // cannon
+  "YOU GO WORK": youGoWork,     // cannon
+  "TALK TO ME": talkToMe,       // cannon
+  "THEY GO WORK": theyGoWork,   // cannon
+  "THEY GO TALK": theyGoTalk,   // cannon
+  "THEY GO HELP": theyGoHelp,   // cannon
+  "THEY HELP YOU": theyHelpYou, // cannon
   
 }
