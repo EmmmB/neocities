@@ -1,5 +1,5 @@
 :root {
-  --button-size: 15em;
+  --button-size: 25vmin;
   cursor: url('./hand/cursor.ico'), default;
 
 }
@@ -34,11 +34,12 @@ body {
   position: absolute;
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: 15em 15em 15em;
-  gap: 4em;
+  grid-template-rows: 15em 16em 15em;
+  height: 25vh;
+  gap: 6vmin;
   align-items: center;
   justify-content: center;
-  top: 75%;
+  top: 70vmax;
   left: 50%;
   translate: -50% -50%;
   margin: 0;
@@ -80,12 +81,12 @@ body {
 
 .screen {
   display: grid;
-  position: absolute;
+  position: fixed;
   justify-items: center;
   align-items: center;
   left: 50%;
   translate: -50% 125%;
-  width: 12vh;
+  width: 26vmin;
   text-transform: uppercase;
   color: #697821;
   scale: 350%;
@@ -129,7 +130,7 @@ body {
   overflow: hidden;
   display: none;
   filter: blur(1px);
-  scale: 200%;
+  scale: 150%;
 }
 
 #loadFill {
