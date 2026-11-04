@@ -1,41 +1,79 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nothing up here sorry</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
-  </head>
-  <body>
-    <h1>HEY I GOT IDEAS NOW!!! HURRAY FOR BEING MEDICATED!</h1>
-    <h2>Here you can check out my <a href="./genesis-01/speak.html">Endacopia fan site</a><br>It's a recreation of GENESIS-01 since I loved talking to him so much<br>Still a work in progress but I'm really proud of it so far since it's my first project like this =)</h2>
-
-    <p>You still can check out my friend's site, I always enjoy whatever he makes <a href="https://xtraboy.neocities.org/">my friend's page</a>.</p>
-
-    <p>It doesn't like it when you do ascii art...</p>
-
-    <p>TRIXIE ATTACK</p>
-    <a href="https://www.youtube.com/results?search_query=trixie+mlp"><img src="./TrixieAttack.gif"></a>
-
-    <p>Trixie isn't loading...</p>
-    <p>Okay I fixed Trixie</p>
-    <p>Things I love:</p>
-
-    <ul>
-      <li>Trixie</li>
-      <li>My Boyfriend</li>
-      <li>My Boyfriend's HOT ass</li>
-      <li>Starlight Glimmer's HOT ass</li>
-    </ul>
-
-    <p>To learn more HTML/CSS, <a href="https://youtu.be/9bZkp7q19f0">SUCK MY COCK!</a>!</p>
+    <title>LET ME TALK</title>
+    <link href="genesis-01.css?v8" rel="stylesheet" media="screen and (orientation: landscape)">
+    <link href="genesis-01_mobile.css?v3" rel="stylesheet" media="screen and (orientation: portrait)">
     
-    <h1><b>MY MOTHERFUCKING CSS WON'T APPLY FUCKING BITCH</b></h1>
-    <p>sorry I just had to clear my cookies...</p>
     
-    <img src="./nonbinary.gif"> <img src="./free-sex.gif">
+   </head>
+   <body>
+
+      <div class="screen">
+
+         <img class="display" src="./img/screen/fullscreen.png">
+
+         <span class="response"></span>
+
+         <span class="phrases" id="phrase">
+            <span id="1"></span>
+            <span id="2"></span>
+            <span id="3"></span>
+         </span>
+
+         <div  id="loadBar">
+            <div id="loadFill"></div>
+         </div>
+      </div>
+
+      <div class="buttons">
+
+         <span id="sayME" class="buttonImage">
+            <button id="pressME" type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayTALK" class="buttonImage">
+            <button id="pressTALK" type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayTHEY" class="buttonImage">
+            <button id="pressTHEY" type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayHELP" class="buttonImage">
+            <button id="pressHELP" type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayYOU" class="buttonImage">
+            <button id="pressYOU" type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayWORK" class="buttonImage">
+            <button id="pressWORK" type="button" class="buttonText"></button>
+         </span> 
+
+         <span id="sayTO" class="buttonImage">
+            <button id="pressTO" type="button" class="buttonText" ></button>
+         </span>
+
+         <span id="sayGO" class="buttonImage">
+            <button id="pressGO" type="button" class="buttonText"></button>
+         </span>
+
+         <span id="sayLET" class="buttonImage">
+            <button id="pressLET" type="button" class="buttonText"></button>
+         </span>
+
+         <span id="reset" class="buttonImage">
+            <button id="pressReset" class="buttonText" type="button"></button>
+         </span>
+
+      </div>
+
+
+
+      <script type="module" src="genesis-01.js?v7"></script>
   </body>
+
 </html>
