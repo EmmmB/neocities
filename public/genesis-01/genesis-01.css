@@ -13,7 +13,6 @@ body {
   background-color: rgb(17, 19, 13);
   color: black;
   font-family: gene;
-
 }
 
 .buttonText {
@@ -82,6 +81,7 @@ body {
   justify-items: center;
   align-items: center;
   position: absolute;
+  top: 50%;
   left: 50%;
   translate: -50% -60%;
   width: 34%;
@@ -91,7 +91,6 @@ body {
   text-transform: uppercase;
   color: #697821;
   font-size: 2.5em;
-  margin: 9em auto 0px;
   
 }
 
@@ -104,6 +103,7 @@ body {
 
 .response {
   position: absolute;
+  align-content: center;
   width: 110%;
   height: 100%;
   text-align: center;
@@ -223,4 +223,8 @@ body {
   background-image: url(./img/BUTTONS/reset2.png);
   background-size: calc(var(--button-size) / 1.5) !important;
   background-repeat: no-repeat;
+}
+
+.buttons > .buttonText {
+
 }

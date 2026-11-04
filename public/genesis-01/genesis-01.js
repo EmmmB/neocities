@@ -31,22 +31,32 @@
     oggLoad.volume = 1
 
 // funcs
-  window.onmousedown = () => {
+  onmousedown = () => {
     document.documentElement.style.cursor = "url('./hand/cursor_closed.ico'), default"
   }
   
-  window.onmouseup = () => {
+  onmouseup = () => {
     document.documentElement.style.cursor = "url('./hand/cursor.ico'), default"
   } 
 
-  document.querySelector(".buttons").onmousedown = () => {
-    oggPressOn.pause()
-    oggPressOn.currentTime = 0
-    oggPressOn.play()
+  const button = document.querySelectorAll(".buttonText")
+
+
+  for(let i = 0; i < button.length; i++) {
+    button[i].addEventListener("mousedown", () =>{
+      oggPressOn.pause()
+      oggPressOn.currentTime = 0
+      oggPressOn.play()
+    }) 
+    button[i].addEventListener("mouseup", () =>{
+      oggPressOff.pause()
+      oggPressOff.currentTime = 0
+      oggPressOff.play()
+    }) 
 
   }
 
-  document.querySelector(".buttons").onmouseup = () => {
+  function buttonUnclick() {
     oggPressOff.pause()
     oggPressOff.currentTime = 0
     oggPressOff.play()
@@ -124,15 +134,15 @@
   }
 
   // Each button sends what string is should display, and what sound file it should play over to buttonPress
-  const buttonYOU = document.querySelector('#sayYOU')
-  const buttonTHEY = document.querySelector('#sayTHEY')
-  const buttonME = document.querySelector('#sayME')
-  const buttonTO = document.querySelector('#sayTO')
-  const buttonLET = document.querySelector('#sayLET')
-  const buttonGO = document.querySelector('#sayGO')
-  const buttonTALK = document.querySelector('#sayTALK')
-  const buttonHELP = document.querySelector('#sayHELP')
-  const buttonWORK = document.querySelector('#sayWORK')
+  const buttonYOU = document.querySelector('#pressYOU')
+  const buttonTHEY = document.querySelector('#pressTHEY')
+  const buttonME = document.querySelector('#pressME')
+  const buttonTO = document.querySelector('#pressTO')
+  const buttonLET = document.querySelector('#pressLET')
+  const buttonGO = document.querySelector('#pressGO')
+  const buttonTALK = document.querySelector('#pressTALK')
+  const buttonHELP = document.querySelector('#pressHELP')
+  const buttonWORK = document.querySelector('#pressWORK')
 
   buttonYOU.onmousedown = () => buttonPress('YOU', oggYOU)
   buttonTHEY.onmousedown = () => buttonPress('THEY', oggTHEY)
@@ -145,9 +155,8 @@
   buttonWORK.onmousedown = () => buttonPress('WORK', oggWORK)
 
 
-
 //  resest button. Checks if it's "thinking" so it doesn't reset when it shouldn't
-  const buttonReset = document.querySelector('#reset')
+  const buttonReset = document.querySelector('#pressReset')
 
   buttonReset.onmousedown = () => {
       if(isThinking == false) {
