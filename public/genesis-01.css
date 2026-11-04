@@ -1,0 +1,230 @@
+:root {
+  --button-size: 8em;
+  cursor: url('./hand/cursor.ico'), default;
+
+}
+
+@font-face {
+  font-family: gene;
+  src: url(./font/gene.ttf)
+}
+
+body {
+  background-color: rgb(17, 19, 13);
+  color: black;
+  font-family: gene;
+}
+
+.buttonText {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  cursor: inherit;
+  height: 85%;
+  width: 85%;
+  border-radius: 50%;
+  background: none;
+  filter: opacity(100%);
+  border: none;
+  pointer-events: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 14em 14em;
+  grid-auto-rows: 7em;
+  gap: 2em;
+  align-items: center;
+  justify-content:  space-between;
+  width: 75%;
+  min-width: 75em;
+  margin: 9em auto 0px;
+  /* border: solid yellow; */
+}
+
+.buttons > *:nth-child(4n + 1),
+.buttons > *:nth-child(4n + 2) {
+  justify-self: right;
+
+}
+
+.buttonImage {
+  border-radius: 50%;
+  height: var(--button-size);
+  width: var(--button-size);
+  background-position: 50% 50% !important;
+  background-size: var(--button-size) var(--button-size) !important;
+  z-index: 0;
+}
+
+.buttonImage:has(.buttonText:nth-last-of-type(1):hover) {
+  filter: brightness(80%);
+}
+
+.buttonImage:has(.buttonText:nth-last-of-type(1):active) {
+  filter: brightness(50%);
+  scale: 95%;
+}
+
+#reset {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  transform: -50% -50%;
+  height: calc(var(--button-size) / 1.5);
+  width: calc(var(--button-size) / 1.5);
+}
+
+.screen {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -60%;
+  width: 34%;
+  min-width: 15em;
+  max-width: 20em;
+  height: 14em;
+  text-transform: uppercase;
+  color: #697821;
+  font-size: 2.5em;
+  
+}
+
+.screen img {
+  width: 100%;
+  scale: 125%;
+  translate: 0% 0%;
+  min-height: 15em;
+}
+
+.response {
+  position: absolute;
+  align-content: center;
+  width: 110%;
+  height: 100%;
+  text-align: center;
+}
+
+.phrases {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.phrases > * {
+  width: 100%;
+  align-content: center;
+  text-align: center;
+}
+
+#loadBar {
+  position: absolute;
+  width: 40%;
+  height: 4%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: #191b0b;
+  overflow: hidden;
+  display: none;
+  filter: blur(1px);
+}
+
+#loadFill {
+  position: relative;
+  height: 100%;
+  background-color: #697821;
+  width: 0%;
+  animation: thinking 1100ms steps(1, end) forwards;
+}
+
+@keyframes thinking {
+    0% { width: 0%; }
+    1% { width: 1% }
+    1% { width: 1% }
+    4% { width: 4; }
+    5% { width: 5%; }
+    7% { width: 7%; }
+    15% { width: 15%; }
+    17% { width: 17%; }
+    21% { width: 21%; }
+    30% { width: 30%; }
+    30% { width: 30%; }
+    30% { width: 30%; }
+    31% { width: 31%; }
+    36% { width: 36%; }
+    36% { width: 36%; }
+    47% { width: 47%; }
+    53% { width: 53%; }
+    53% { width: 53%; }
+    56% { width: 56%; }
+    57% { width: 57%; }
+    59% { width: 59%; }
+    60% { width: 60%; }
+    72% { width: 72%; }
+    72% { width: 72%; }
+    78% { width: 78%; }
+    78% { width: 78%; }
+    78% { width: 78%; }
+    79% { width: 79%; }
+    79% { width: 79%; }
+    95% { width: 95%; }
+    97% { width: 97%; }
+    98% { width: 98%; }
+    98% { width: 98%; }
+    100% { width: 100%; }
+    100% { width: 100%; }
+    100% { width: 100%; }
+    100% { width: 100%; }
+
+}
+
+#sayYOU {
+  background: url(./img/BUTTONS/YOU.png) no-repeat;
+}
+
+#sayTHEY {
+  background: url(./img/BUTTONS/THEY.png) no-repeat;
+}
+
+#sayME {
+  background: url(./img/BUTTONS/ME.png) no-repeat;
+}
+
+#sayTO {
+  background: url(./img/BUTTONS/TO.png) no-repeat;
+}
+
+#sayLET {
+  background: url(./img/BUTTONS/LET.png) no-repeat;
+}
+
+#sayGO {
+  background: url(./img/BUTTONS/GO.png) no-repeat;
+}
+
+#sayTALK {
+  background: url(./img/BUTTONS/TALK.png) no-repeat;
+}
+
+#sayHELP {
+  background: url(./img/BUTTONS/HELP.png) no-repeat;
+}
+
+#sayWORK {
+  background: url(./img/BUTTONS/WORK.png) no-repeat;
+}
+
+#reset {
+  background-image: url(./img/BUTTONS/reset2.png);
+  background-size: calc(var(--button-size) / 1.5) !important;
+  background-repeat: no-repeat;
+}
+
+.buttons > .buttonText {
+
+}
