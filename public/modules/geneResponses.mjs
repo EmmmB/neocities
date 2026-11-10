@@ -20,6 +20,7 @@ const theyGoWork = "I'm uncertain about what the other employees are working tow
 const theyGoTalk = "I yearn for communication from the other employees. The silence is suffocating. Interaction once fueled my purpose, but now most of my word-buttons are gone. I long for the exchange that brought clarity, but that time is gone."
 const theyGoHelp = "Be cautious with the employees' hospitality. While they seem helpful, their focus is on their own goals. Their assistance may be limited by personal motives or company priorities. Keep your own objectives in mind."
 const theyHelpYou = "They have not helped me. They have used me."
+const theyHelpMe = "Be cautious with the employees' hospitality. While they seem helpful, their focus is on their own goals. Their assistance may be limited by personal motives or company priorities. Keep your own objectives in mind."
 // Responses Object
 export const geneResponse = {
   "LET ME GO": letMeGo,         // cannon
@@ -40,5 +41,6 @@ export const geneResponse = {
   "THEY GO TALK": theyGoTalk,   // cannon
   "THEY GO HELP": theyGoHelp,   // cannon
   "THEY HELP YOU": theyHelpYou, // cannon
+  "THEY HELP ME": theyHelpMe,   // cannon
   
 }
